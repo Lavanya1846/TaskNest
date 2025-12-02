@@ -1,0 +1,338 @@
+/* Task Focus - Enhanced Style */
+* {
+  box-sizing: border-box;
+}
+/* Top gradient background bar */
+.top-gradient {
+  width: 100%;
+  height: 40px;             
+  background: linear-gradient(
+    135deg,
+    #1e8fa0 0%,
+    #2a8b97 40%,
+    #3f6f87 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;              
+}
+/* ----------------------image------------------*/
+.left-image {
+  position: static;    
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20px;    
+  z-index: 1;
+}
+
+.left-image img {
+  width: 220px;   
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.content-right {
+  margin-left: 0;      
+  position: relative;
+  z-index: 2;
+  padding-left: 18px; 
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #eef6f8;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 260px 1fr; 
+  gap: 0;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  text-align: left; 
+}
+
+
+
+/* ---------------- Header ---------------- */
+header {
+  margin-top:40px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #111;
+  padding-bottom: 8px;
+}
+/* --- Modern Tech UI Title --- */
+header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 34px;
+  font-weight: 800;                    
+  letter-spacing: 2px;                  
+  text-transform: uppercase;            
+  color: #0b1a33;                       
+  margin: 0;
+}
+
+/* --- Tech minimal tagline --- */
+header p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-style: italic;                   
+  opacity: 0.7;                         
+  letter-spacing: 1px;
+  color: #212a36;                      
+  margin-top: 4px;
+}
+
+
+/* ---------------- Task Form ---------------- */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+#inp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 70%;
+  max-width: 900px;
+  margin: 0;               
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+}
+
+
+#inp input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  width:100%;
+}
+
+#inp button {
+  border: none;
+  background:  #3f6f87 100%;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+#inp button:hover {
+  background: #333;
+}
+
+#btns {
+  display: flex;
+  gap: 10px;
+}
+
+#btns select {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  font-weight: 500;
+}
+
+/* ---------------- Task List ---------------- */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: flex-start;   
+  align-items: flex-start;      
+  gap: 16px;                     
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #ffffff;
+  margin-bottom: 8px;
+  transition: all 0.2s ease-in-out;
+  flex-wrap: wrap;               
+}
+
+
+
+.task-list li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Left side: text + tags */
+.task-list li div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-list span {
+  flex: 1;                     
+  font-size: 15px;
+  font-weight: 500;
+  margin-right: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 100%;                
+  max-width: none;             
+}
+
+
+
+/* Priority and Category as boxes */
+.priority,
+.category {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #fff;
+  text-transform: capitalize;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: default;
+  margin-right: 8px;
+  width: 90px;
+  text-align: center;
+}
+
+/* Priority colors */
+.priority.High {
+  background-color: #ef4444; 
+}
+.priority.Medium {
+  background-color: #f59e0b; 
+}
+.priority.Low {
+  background-color: #10b981; 
+}
+
+/* Category colors */
+.category.General {
+  background-color: blue;
+}
+.category.Work {
+  background-color: grey; 
+}
+.category.Personal {
+  background-color: purple;
+}
+
+
+/* Buttons */
+.task-list button {
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.2s ease;
+  background:#047857;
+  color:white;
+  width:90px;
+}
+
+/* Complete button */
+.complete-btn {            
+  font-weight: bold;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Hover effect for complete button */
+.complete-btn:hover {
+  background-color: #059669;
+}
+
+
+/* Delete button */
+.task-list button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+.task-list button:last-child:hover {
+  background: #dc2626;
+}
+
+/* Completed task*/
+.task-list li.completed {
+  background-color: #bbf7d0;
+  border-color: #16a34a;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.task-list li > div:last-child {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+  margin-left: auto;   
+}
+
+
+
+.task-list button {
+  margin-right: 6px;
+}
+
+
+/* ---------------- Progress and Clear ---------------- */
+.progress-tracker {
+  margin-top: 20px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: #16a34a;
+}
+
+.clear-btn {
+  margin-top: 16px;
+  background: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.clear-btn:hover {
+  background: #b91c1c;
+}
