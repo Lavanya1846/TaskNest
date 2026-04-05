@@ -1,338 +1,282 @@
-/* Task Focus - Enhanced Style */
+/* ================= GLOBAL STYLES ================= */
+
+body, html {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
 * {
-  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
-/* Top gradient background bar */
-.top-gradient {
-  width: 100%;
-  height: 40px;             
-  background: linear-gradient(
-    135deg,
-    #1e8fa0 0%,
-    #2a8b97 40%,
-    #3f6f87 100%
-  );
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;              
-}
-/* ----------------------image------------------*/
-.left-image {
-  position: static;    
+
+
+/* ================= LAYOUT ================= */
+
+.layout {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 20px;    
-  z-index: 1;
+  min-height: 100vh;
 }
 
-.left-image img {
-  width: 220px;   
-  height: auto;
-  border-radius: 8px;
-  display: block;
-}
-
-.content-right {
-  margin-left: 0;      
-  position: relative;
-  z-index: 2;
-  padding-left: 18px; 
-}
-
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  background-color: #eef6f8;
-}
-
-.App {
-  display: grid;
-  grid-template-columns: 260px 1fr; 
-  gap: 0;
-  align-items: start;
-  width: 100%;
-  margin: 0;
-  padding: 24px;
-  box-sizing: border-box;
-  position: relative;
-  text-align: left; 
-}
-
-
-
-/* ---------------- Header ---------------- */
-header {
-  margin-top:40px;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #111;
-  padding-bottom: 8px;
-}
-/* --- Modern Tech UI Title --- */
-header h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 34px;
-  font-weight: 800;                    
-  letter-spacing: 2px;                  
-  text-transform: uppercase;            
-  color: #0b1a33;                       
-  margin: 0;
-}
-
-/* --- Tech minimal tagline --- */
-header p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
-  font-style: italic;                   
-  opacity: 0.7;                         
-  letter-spacing: 1px;
-  color: #212a36;                      
-  margin-top: 4px;
-}
-
-
-/* ---------------- Task Form ---------------- */
-.task-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px;
-  margin: 16px 0;
-}
-
-#inp {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 70%;
-  max-width: 900px;
-  margin: 0;               
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  background: #fff;
-}
-
-
-#inp input {
+.main {
   flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 15px;
-  width:100%;
+  padding: 20px;
 }
 
-#inp button {
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 220px;
+  background: #0f172a;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.sidebar p {
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.sidebar p:hover {
+  background: #1e293b;
+}
+
+.sidebar .active {
+  background: #4f46e5;
+}
+
+.theme-btn {
+  margin-bottom: 10px;
+  padding: 6px;
   border: none;
-  background:  #3f6f87 100%;
-  color: #fff;
-  padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s ease;
 }
 
-#inp button:hover {
-  background: #333;
-}
 
-#btns {
+/* ================= DASHBOARD ================= */
+
+.dashboard {
   display: flex;
-  gap: 10px;
-}
-
-#btns select {
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  background: #fff;
-  font-weight: 500;
-}
-
-/* ---------------- Task List ---------------- */
-.task-list {
-  list-style: none;
-  padding: 0;
+  gap: 15px;
   margin: 20px 0;
 }
 
-.task-list li {
-  display: flex;
-  justify-content: flex-start;   
-  align-items: flex-start;      
-  gap: 16px;                     
-  padding: 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #ffffff;
-  margin-bottom: 8px;
-  transition: all 0.2s ease-in-out;
-  flex-wrap: wrap;               
-}
-
-
-
-.task-list li:hover {
-  transform: scale(1.02);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* Left side: text + tags */
-.task-list li div:first-child {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.task-list span {
-  flex: 1;                     
-  font-size: 15px;
-  font-weight: 500;
-  margin-right: 10px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  width: 100%;                
-  max-width: none;             
-}
-
-
-
-/* Priority and Category as boxes */
-.priority,
-.category {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 12px;
-  border-radius: 6px;
-  color: #fff;
-  text-transform: capitalize;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  cursor: default;
-  margin-right: 8px;
-  width: 90px;
+.card {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
   text-align: center;
 }
 
-/* Priority colors */
-.priority.High {
-  background-color: #ef4444; 
-}
-.priority.Medium {
-  background-color: #f59e0b; 
-}
-.priority.Low {
-  background-color: #10b981; 
+
+/* ================= TASK FORM ================= */
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-/* Category colors */
-.category.General {
-  background-color: blue;
-}
-.category.Work {
-  background-color: grey; 
-}
-.category.Personal {
-  background-color: purple;
+.form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-
-/* Buttons */
-.task-list button {
+.form select,
+.form button {
+  padding: 10px;
+  border-radius: 8px;
   border: none;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.2s ease;
-  background:#047857;
-  color:white;
-  width:90px;
 }
 
-/* Complete button */
-.complete-btn {            
-  font-weight: bold;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-/* Hover effect for complete button */
-.complete-btn:hover {
-  background-color: #059669;
-}
-
-
-/* Delete button */
-.task-list button:last-child {
-  background: #ef4444;
+.form button {
+  background: #4f46e5;
   color: white;
 }
 
-.task-list button:last-child:hover {
-  background: #dc2626;
+
+/* ================= TASK GRID ================= */
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
 }
 
-/* Completed task*/
-.task-list li.completed {
-  background-color: #bbf7d0;
-  border-color: #16a34a;
-  text-decoration: none;
-  opacity: 1;
+.task-card {
+  padding: 18px;
+  border-radius: 12px;
+  background: white;
 }
 
-.task-list li > div:last-child {
+/* ================= PRIORITY COLORS ================= */
+
+.task-card.High { background: #fee2e2; }
+.task-card.Medium { background: #fef3c7; }
+
+.task-card.Low {
+  background: #e0f2fe; /* light sky blue */
+}
+
+/* Completed (strong green) */
+.task-card.done { background: #86efac; }
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+/* ================= BADGES ================= */
+
+/* FIX: better spacing */
+.badges {
   display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 10px;
-  margin-left: auto;   
+  gap: 8px; /* space between priority & category */
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
-
-
-.task-list button {
-  margin-right: 6px;
-}
-
-
-/* ---------------- Progress and Clear ---------------- */
-.progress-tracker {
-  margin-top: 20px;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #e5e7eb;
+.badges span {
+  padding: 4px 10px;
   border-radius: 999px;
-  overflow: hidden;
+  color: white;
+  font-size: 12px;
 }
 
-.progress {
-  height: 100%;
-  background: #16a34a;
+/* Priority badges */
+.priority.High { background: #ef4444; }
+.priority.Medium { background: #f59e0b; }
+
+.priority.Low {
+  background: #0284c7; /* clean blue */
+}
+
+
+/* Category badges */
+.category.Work { background: #6366f1; }
+.category.Personal { background: #8b5cf6; }
+.category.General { background: #6b7280; }
+
+
+/* ================= ACTION BUTTONS ================= */
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px; /* FIX spacing */
+}
+
+.actions button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions .delete {
+  background: red;
+  color: white;
 }
 
 .clear-btn {
-  margin-top: 16px;
-  background: #dc2626;
-  color: #ffffff;
+  margin-top: 20px;
+  padding: 10px;
+  background: crimson;
+  color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+  border-radius: 8px;
 }
 
-.clear-btn:hover {
-  background: #b91c1c;
+
+/* ================= EMPTY STATE ================= */
+
+.empty {
+  padding: 30px;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+.dark {
+  background: #020617;
+  min-height: 100vh;
+}
+
+.dark body {
+  background: #020617;
+}
+
+.dark .main {
+  background: #020617;
+  color: white;
+}
+
+.dark .card {
+  background: #1e293b;
+  color: white;
+}
+
+.dark .form input {
+  background: #0f172a;
+  color: white;
+  border: 1px solid #334155;
+}
+
+.dark .form select {
+  background: #0f172a;
+  color: white;
+}
+
+.dark .actions button {
+  background: #334155;
+  color: white;
+}
+
+.dark .actions .delete {
+  background: red;
+}
+
+.dark .empty {
+  background: #1e293b;
+  color: white;
+}
+
+.dark .sidebar {
+  background: #020617;
+}
+
+
+/* ================= DARK MODE PRIORITY COLORS ================= */
+
+.dark .task-card.High {
+  background: #991b1b;
+  color: white;
+}
+
+.dark .task-card.Medium {
+  background: #92400e;
+  color: white;
+}
+
+.dark .task-card.Low {
+  background: #1e3a8a; /* strong deep blue */
+  color: white;
+}
+
+.dark .task-card.done {
+  background: #166534;
+  color: white;
 }

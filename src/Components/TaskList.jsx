@@ -1,42 +1,63 @@
+import { useState } from "react";
+
 export default function TaskList({ tasks, updateTask, deleteTask }) {
+  const [editIndex, setEditIndex] = useState(null);
+  const [editText, setEditText] = useState("");
+
   const toggleComplete = (index) => {
-    const updatedTask = { ...tasks[index], completed: !tasks[index].completed };
-    updateTask(updatedTask, index);
-    if (!tasks[index].completed) {
-      alert("Successfully Completed!");
-    } else {
-      alert("Marked as Incomplete!");
-    }
+    const updated = { ...tasks[index], completed: !tasks[index].completed };
+    updateTask(updated, index);
   };
 
-  const handleDelete = (index) => {
-    deleteTask(index);
-    alert("Deleted Successfully!");
+  const startEdit = (index, text) => {
+    setEditIndex(index);
+    setEditText(text);
   };
- return (
-    <ul className="task-list">
+
+  const saveEdit = (index) => {
+    const updated = { ...tasks[index], text: editText };
+    updateTask(updated, index);
+    setEditIndex(null);
+  };
+
+  return (
+    <div className="task-grid">
       {tasks.map((task, index) => (
-        <li key={index} className={task.completed ? "completed" : ""}>
-          <div>
-            <span>{task.text}</span>
-            </div>
-             <div>
-            <small className={`priority ${task.priority}`}>
-              {task.priority}
-            </small>
-            <small className={`category ${task.category}`}>
-              {task.category}
-            </small>
-           <button onClick={() => toggleComplete(index)}className="complete-btn">
-      {task.completed ? "Undo" : "Complete"}
-     </button>
+        <div key={index} className={`task-card ${task.completed ? "done" : ""} ${task.priority}`}>
 
-<button onClick={() => handleDelete(index)}className="delete-btn">Delete</button>
+          {editIndex === index ? (
+            <input
+              value={editText}
+              onChange={(e) => setEditText(e.target.value)}
+            />
+          ) : (
+            <h3>{task.text}</h3>
+          )}
+
+          <div className="badges">
+            <span className={`priority ${task.priority}`}>{task.priority}</span>
+            <span className={`category ${task.category}`}>{task.category}</span>
+          </div>
+
+          <div className="actions">
+
+            {editIndex === index ? (
+              <button onClick={() => saveEdit(index)}>Save</button>
+            ) : (
+              <button onClick={() => startEdit(index, task.text)}>Edit</button>
+            )}
+
+            <button onClick={() => toggleComplete(index)}>
+              {task.completed ? "Undo" : "Done"}
+            </button>
+
+            <button className="delete" onClick={() => deleteTask(index)}>
+              Delete
+            </button>
 
           </div>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }
-
