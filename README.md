@@ -51,6 +51,5 @@ This project focuses on building a clean and functional UI while practicing Reac
 
 ---
 
-Practice project for learning Cursor and Git integration.
 
 
